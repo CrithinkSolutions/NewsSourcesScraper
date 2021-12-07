@@ -2,7 +2,6 @@
 from bs4 import BeautifulSoup
 import requests
 import re
-from getpass import getpass
 import json
 import datetime
 import os
