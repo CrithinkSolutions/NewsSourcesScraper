@@ -66,25 +66,30 @@ def saveLinks():
         output.write("\n".join(sourceLinks))
 
 
+def loadBufale():
+    f = open('bufale.json')
+    global sourceLinks
+    sourceLinks = json.load(f)
+
+
 def addSourceToServer():
     counter = 0
     print("Start to adding on server...")
-    for addedSource in sourceLinks:
-        payload = json.dumps(
-            {"newsLink": addedSource, "classification": classification})
-        request = requests.post("https://crithinkapp.com/api/admin/news-source-add", data=payload, headers={
-                                "Content-Type": "application/json", "X-CriThink-Cross-Service": "scraper"}, verify=False)
-        if request.status_code == 204:
-            counter += 1
-            goodLog = str(counter) + "/" + \
-                str(len(sourceLinks)) + " [OK] " + addedSource
-            print(goodLog)
-            log.append(goodLog)
-        else:
-            badLog = str(counter) + "/" + str(len(sourceLinks)) + \
-                " [ERROR] " + addedSource + " [TYPE] " + str(request.json())
-            print(badLog)
-            log.append(badLog)
+    request = requests.put("https://crithinkapp.com/api/news-source/add/batch", data=json.dumps(sourceLinks), headers={"accept": "*/*",
+                                                                                                                       "api-version": "1.0",
+                                                                                                                       "Content-Type": "application/json", "X-CriThink-Cross-Service": "c&4rz%uSFE7P@4"})
+    if request.status_code == 204:
+        counter += 1
+        goodLog = str(counter) + "/" + \
+            str(len(sourceLinks)) + " [OK] " + str(sourceLinks)
+        print(goodLog)
+        log.append(goodLog)
+    else:
+        badLog = str(counter) + "/" + str(len(sourceLinks)) + \
+            " [ERROR] " + str(sourceLinks) + \
+            " [TYPE] " + str(request.json())
+        print(badLog)
+        log.append(badLog)
     print("DONE! Added", counter, classification, "source into your server!")
     if counter < len(sourceLinks):
         print("WARNING: Some links are missing please check the log!")
@@ -108,12 +113,13 @@ def makeLog():
 print("CriThink WebFactChecker Scraper v0.1.3")
 print("------------------------------------")
 print("Selected classification:", classification)
-lastDB()
-if results.dbfile:
-    print("A external DB is selected")
-    openDB(results.dbfile)
-else:
-    loadHTML()
-saveLinks()
+# lastDB()
+# if results.dbfile:
+#     print("A external DB is selected")
+#     openDB(results.dbfile)
+# else:
+#     loadHTML()
+# saveLinks()
+loadBufale()
 addSourceToServer()
 makeLog()

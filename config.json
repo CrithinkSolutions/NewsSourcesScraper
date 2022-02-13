@@ -2,17 +2,17 @@
   "bufale": {
     "url": "https://www.bufale.net/the-black-list-la-lista-nera-del-web/",
     "classification": {
-      "False testate giornalistiche “satiriche”": "Fake news",
-      "Siti di bufale e disinformazione medica e scientifica": "Fake news",
-      "Siti di disinformazione politica": "Fake news",
-      "Siti di disinformazione a sfondo religioso e/o razziale": "Fake news",
-      "Siti di bufale scandalistiche": "Fake news",
-      "Siti di bufale a sfondo politico e razziale": "Fake news",
-      "Siti clickbait": "Fake news",
-      "Pagine social clickbait": "Fake news",
-      "I siti e le pagine social di complottisti e bufalari": "Conspiracy",
-      "Personaggi pubblici": "Fake news",
-      "Testate giornalistiche": "Fake news"
+      "False testate giornalistiche “satiriche”": "FakeNews",
+      "Siti di bufale e disinformazione medica e scientifica": "FakeNews",
+      "Siti di disinformazione politica": "FakeNews",
+      "Siti di disinformazione a sfondo religioso e/o razziale": "FakeNews",
+      "Siti di bufale scandalistiche": "FakeNews",
+      "Siti di bufale a sfondo politico e razziale": "FakeNews",
+      "Siti clickbait": "FakeNews",
+      "Pagine social clickbait": "FakeNews",
+      "I siti e le pagine social di complottisti e bufalari": "Conspiracist",
+      "Personaggi pubblici": "FakeNews",
+      "Testate giornalistiche": "FakeNews"
     }
   }
 }

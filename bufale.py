@@ -17,7 +17,7 @@ def main():
         listOfLinks = descriptionOfLinks.find_next('ul')
         for link in listOfLinks.find_all('a'):
             links.append(
-                {'url': link['href'], 'classification': config['classification'][title]})
+                {link['href']: config['classification'][title]})
     open('bufale.json', 'w').write(json.dumps(links))
 
 
